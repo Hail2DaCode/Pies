@@ -31,7 +31,7 @@
                     <tbody>
                         {%for pie in pies%}
                         <tr><td><a href="/pie/{{pie.id}}">{{pie.name}}</a></td>
-                            <td>{% for user in users %}{% if user.id == pie.user_id%}{{user.first_name}} {% endif %}{% endfor %}</td>
+                            <td>{{pie.creator.first_name}}</td>
                             <td>{{pie.votes}}</td>
                         </tr>
                         {% endfor %}

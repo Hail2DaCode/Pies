@@ -24,8 +24,8 @@
                         {%for pie in user.pies%}
                         <tr><td>{{pie.name}}</td>
                             <td>
-                                <a href = "/pie/edit/{{pie.id}}">Edit</a>
-                                <a href="/delete/{{pie.id}}">Delete</a>
+                                <a href = "/pie/edit/{{pie.id}}" class="me-5">Edit</a>
+                                <a href="/delete/{{pie.id}}" class="me-5">Delete</a>
                             </td>
                         </tr>
                         {% endfor %}
@@ -33,8 +33,10 @@
                 </table>
             </div>
             <div class="col-6">
-                <a href="/pies">PieDerby</a>
-                <a href = "/clear">logout</a>
+                <div class="col d-flex justify-content-sm-between my-3">
+                    <a href="/pies" class="fs-3">PieDerby</a>
+                    <a href = "/clear" class="fs-3">logout</a>
+                </div>
                 <form action = '/create/new/pie' method = 'post' class="bg-light form">
                     <label for = "name" class="form-label">Name:</label>
                     <input type = "text" name = "name" class="form-control">

@@ -9,11 +9,16 @@
     <title>Pypie Derby</title>
 </head>
 <body>
-    <a href="/dashboard">Dashboard</a>
-    <a href = "/clear">logout</a>
     <div class="container">
-        <h1 class="display-1">{{pie.name}} By {% for user in users %}{% if user.id == pie.user_id%}{{user.first_name}} {% endif %}{% endfor %}</h1>
-        <p>{{pie.filling + " with" + pie.crust}}</p>
-        <p>Cast a Vote:</p>
-        <a href="/votes/{{pie.id}}">Delicious</a>
+        <div class="col d-flex justify-content-sm-between">
+            <a href="/dashboard">Dashboard</a>
+            <a href = "/clear">logout</a>
+        </div>
+        <h2 class="fs-1">Welcome {{session['first_name']}}</h2>
+        <h1 class="display-1">{{pie.name}} By {{pie.creator.first_name}}</h1>
+        <p>{{pie.filling + " with " + pie.crust}}</p>
+        <p class="fs-2 text-info">Cast a Vote:</p>
+        <form action = "/votes/{{pie.id}}" method="post">
+            <button type="submit" class="btn btn-success"  >Delicious</button>
+        </form>
     </div>

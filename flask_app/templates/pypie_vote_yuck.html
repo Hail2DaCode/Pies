@@ -9,11 +9,19 @@
     <title>Pypie Derby</title>
 </head>
 <body>
-    <a href="/dashboard">Dashboard</a>
-    <a href = "/clear">logout</a>
+    <div class="col d-flex justify-content-sm-between">
+        
+    </div>
     <div class="container">
-        <h1 class="display-1">{{pie.name}} By {% for user in users %}{% if user.id == pie.user_id%}{{user.first_name}} {% endif %}{% endfor %}</h1>
-        <p>{{pie.filling + " with" + pie.crust}}</p>
-        <p>Aww yuck!  You have already voted for this pie!  If you would like to remove your vote please click below:</p>
-        <a href="/yuck/{{pie.id}}">Yuck</a>
+        <div class="col d-flex justify-content-sm-between">
+            <a href="/dashboard">Dashboard</a>
+            <a href = "/clear">logout</a>
+        </div>
+        <h2 class="fs-1">Welcome {{session['first_name']}}</h2>
+        <h1 class="display-1">{{pie.name}} By {{pie.creator.first_name}}</h1>
+        <p>{{pie.filling}} with {{pie.crust}}</p>
+        <p class="fs-5 text-warning">Aww yuck!  You have already voted for this pie!  If you would like to remove your vote please click below:</p>
+        <form action = "/yuck/{{pie.id}}" method="post">
+            <button type="submit" class="btn btn-info"  >Yuck</button>
+        </form>
     </div>
